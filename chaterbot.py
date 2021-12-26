@@ -1,7 +1,7 @@
-from chatterbot import ChatBot
+from chatterbot import ChatBot # importing chatterbot
 import logging
-from chatterbot.trainers import ChatterBotCorpusTrainer
-import speech_recognition as sr
+from chatterbot.trainers import ChatterBotCorpusTrainer #impoting corpus trainer
+import speech_recognition as sr # for speech recognition 
 import pyttsx3
 import pywhatkit
 engine = pyttsx3.init()
@@ -9,13 +9,13 @@ listener = sr.Recognizer()
 
 
 logging.basicConfig(level=logging.INFO)
-bot = ChatBot('walle',
-    storage_adapters = 'chatterbot.storage.SQLStorageAdapter',
+bot = ChatBot('walle', # creating instance by giving it a name
+    storage_adapters = 'chatterbot.storage.SQLStorageAdapter',#defining storage adapter
     logic_adapters = [
-                      'chatterbot.logic.MathematicalEvaluation',
-                        'chatterbot.logic.TimeLogicAdapter',
-                        'chatterbot.logic.BestMatch',
-                       'chatterbot.logic.UnitConversion',
+                      'chatterbot.logic.MathematicalEvaluation',# logic adapter for mathematical evaluation
+                        'chatterbot.logic.TimeLogicAdapter', # logic adapter for current time
+                        'chatterbot.logic.BestMatch', # logic adapter for selecting most appropriate response
+                       'chatterbot.logic.UnitConversion', # logic adapter for unit conversion
                        #'chatterbot_weather.WeatherLogicAdapter'
                         
         
@@ -26,19 +26,19 @@ bot = ChatBot('walle',
     ]
             
 )
-trainer = ChatterBotCorpusTrainer(bot)
+trainer = ChatterBotCorpusTrainer(bot) #trainig the instance
 
 trainer.train(
     "chatterbot.corpus.english"
 )
 
 print("Speak here something to begine.....")
-def speak(command):
+def speak(command): #method that will speak what input it recives
     engine = pyttsx3.init()
     engine.say(command) 
     engine.runAndWait()
 
-while True:
+while True: # main code to generate responce by taking inputs. 
     try:
         with sr.Microphone() as source2:
             print("You>> ")
