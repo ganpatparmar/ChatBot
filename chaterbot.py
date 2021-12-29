@@ -1,3 +1,21 @@
+''' 
+Author: Ganpat Parmar
+E-mail: ganpat5489@gmail.com
+Last Edit: 29-12-2021
+License: Copyright (C) Ganpat Parmar.
+General Public License (AGPL-3.0)
+'''
+
+"""
+This is a ChatBot named ASHU
+with following features.
+1. Conversing with it's user.
+2. Doing some minor calculations.
+3. Opening CAMERA MOUSE for it's user.
+4. Searching things for user on GOOGLE.
+5. Playing videos for user on YOUTUBE.
+"""
+
 from chatterbot import ChatBot # Importing ChatBot Library
 from chatterbot.trainers import ChatterBotCorpusTrainer # Importing ChatBot Trainer Library to train our ChatBot
 import speech_recognition as sr # Importing speech_recongnition  Library for speech to text conversion
